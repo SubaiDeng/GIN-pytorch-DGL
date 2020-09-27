@@ -5,11 +5,10 @@ An implementation of [GIN](https://openreview.net/forum?id=ryGs6iA5Km) model usi
 
 - Python 3.7.3
 - Numpy 1.151
-- Pytorch 0.4.1.post2
-- DGL 0.4.1
+- Pytorch 1.6.0+cu101
+- DGL 0.5.1
 
 ## Dataset
-
 NCI
 
 ## Paper
