@@ -22,7 +22,7 @@ class NCIDataset(Dataset):
 
 
 def load_nci_data(num_nci=1, cuda=False):
-    path = '../data/NCI_balanced/'
+    path = './data/NCI_balanced/'
     filename = 'nci' + str(num_nci) + '.pkl'
     train_test_ratio = 0.7
 
@@ -49,7 +49,8 @@ def load_nci_data(num_nci=1, cuda=False):
         g.add_nodes(graph['number_node'])  # add node
         g.ndata['feature'] = torch.tensor(node_label)  # add node feature
         if cuda:
-            g.ndata['feature'] = g.ndata['feature'].cuda()
+            g = g.to('cuda:0')
+            # g.ndata['feature'] = g.ndata['feature'].cuda()
         edge_start, edge_end = map(list, zip(*(graph['edge'])))
         edge_start = [i - 1 for i in edge_start]
         edge_end = [i - 1 for i in edge_end]
